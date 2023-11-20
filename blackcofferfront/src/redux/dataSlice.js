@@ -71,6 +71,7 @@ const searchSlice = createSlice({
         // You can chain calls, or have separate `builder.addCase()` lines each time
         .addCase(getSearchData.fulfilled, (state, action) => {
           state.filter.push(action.payload);
+          console.log(action.payload, "payload")
           state.loading = false;
         })
         .addCase(getSearchData.rejected, (state, action) => {

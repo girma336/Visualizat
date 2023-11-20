@@ -7,14 +7,14 @@ import getData from '../redux/thunks/fetchAllData'
 const Dashboard = () => {
   const [doFetchUser, isLoadingUser, loadingUserError] = useThunk(getMatchingData)
   const [doFetchData, isLoadingData, loadingDataError] = useThunk(getData)
-  const [doFetchSearch, isLoadingSearch, loadingSearchError] = useThunk(getSearchData)
+  // const [doFetchSearch, isLoadingSearch, loadingSearchError] = useThunk(getSearchData)
 
 
   useEffect(() => {
       doFetchUser();
       doFetchData();
-      doFetchSearch()
-  }, [doFetchData, doFetchUser, doFetchSearch]);
+      // doFetchSearch()
+  }, [doFetchData, doFetchUser]);
 
   return (
     <div className='relative flex flex-col'>

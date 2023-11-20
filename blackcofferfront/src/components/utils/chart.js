@@ -32,6 +32,23 @@ export const getRelevance = (relevance) => {
     }
 }
 
+export const getIntensity = (intensitys) => {
+    if (intensitys) {
+        const groupedData = intensitys.reduce((result, entry) => {
+            const { country, intensity } = entry;
+            if (!result[country]) {
+                result[country] = 0;
+            }
+            result[country] += intensity;
+            return result;
+        }, {});
+        const groupedArray = Object.entries(groupedData).map(([country, intensity]) => ({ country, intensity }));
+        return groupedArray;
+    } else {
+        console.log("intensity data is undefined or null");
+    }
+}
+
 export const getRegion = (regions) => {
     if (regions) {
         const groupedData = regions.reduce((result, entry) => {
@@ -46,5 +63,22 @@ export const getRegion = (regions) => {
         return groupedArray;
     } else {
         console.log("Region data is undefined or null");
+    }
+}
+
+export const getCountry = (countrys) => {
+    if (countrys) {
+        const groupedData = countrys.reduce((result, entry) => {
+            const { country} = entry;
+            if (!result[country]) {
+                result[country] = 0;
+            }
+            result[country] += 1;
+            return result;
+        }, {});
+        const groupedArray = Object.entries(groupedData).map(([country, count]) => ({ country, count }));
+        return groupedArray;
+    } else {
+        console.log("Country data is undefined or null");
     }
 }

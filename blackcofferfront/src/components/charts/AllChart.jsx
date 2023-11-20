@@ -3,7 +3,7 @@ import { Line } from 'react-chartjs-2'
 import { Chart as ChartJS, ArcElement, Tooltip, Legend} from 'chart.js/auto';
 import { useSelector } from 'react-redux';
 import generateColors from '../utils/color';
-import { getRegion, getRelevance } from '../utils/chart';
+import { getRegion, getRelevance, getIntensity, getCountry } from '../utils/chart';
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
@@ -23,7 +23,9 @@ const AllChart = () => {
 
     let groupedRelevance = getRelevance(intt)
     let groupedRegion = getRegion(intt)
-      
+    let groupedIntensity = getIntensity(intt);
+    let groupedCountry = getCountry(intt);
+
     const intensityChart = useMemo(()=> ({
         labels: groupedRelevance?.map(item => item.country),
         datasets: [
@@ -41,11 +43,25 @@ const AllChart = () => {
             borderColor: generateColors(36),
             borderWidth: 1,
           },
+          {
+            label: 'Intensity',
+            data: groupedIntensity?.map(item => item.intensity),
+            backgroundColor: generateColors(36),
+            borderColor: generateColors(36),
+            borderWidth: 1,
+          },
+          {
+            label: 'Country',
+            data: groupedCountry?.map(item => item.count),
+            backgroundColor: generateColors(36),
+            borderColor: generateColors(36),
+            borderWidth: 1,
+          },
         ],
-      }), [groupedRelevance, groupedRegion])
+      }), [groupedRelevance, groupedRegion, groupedIntensity, groupedCountry])
   return (
     <div className='w-[90%] mt-4 border border-[#dde] mb-10 p-3 ml-auto mr-auto'>
-      <h1 className='text-[#717082] text-xl'>Relevance and Region Chart</h1>
+      <h1 className='text-[#717082] text-xl'>Relevance, Country, Intensity and Region Chart</h1>
       <Line data={intensityChart} options={options} />
     </div>
   )

@@ -5,6 +5,7 @@ import BarChartLikeliood from './charts/BarChartLikelihood'
 import BarChartRelevance from './charts/BarChartRelevance'
 import BarChartTopic from './charts/BarChartTopic'
 import BarChartRegion from './charts/BarChartRegion'
+import AllChart from './charts/AllChart'
 
 
 const ChartData = () => {
@@ -16,6 +17,7 @@ const ChartData = () => {
         <BarChartIntencity />
         <BarChartLikeliood />
         <BarChartRelevance />
+        <AllChart />
     </div>
   )
 }

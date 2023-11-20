@@ -19,7 +19,6 @@ export const getSearchData = createAsyncThunk('search/fetch', async (search) => 
     const option = search.searchOption;
     const value = search.searchValue;
     const response = await fetch(`http://localhost:8000/api/v1/data/search?${option}=${value}`);
-    
     if (!response.ok) {
       throw new Error('Network response was not ok');
     }
@@ -30,25 +29,5 @@ export const getSearchData = createAsyncThunk('search/fetch', async (search) => 
     throw new Error('Error fetching search data: ' + error.message);
   }
 });
-
-// export const getSearchData = createAsyncThunk('search/fetch', async (search) => {
-//   try {
-//     const option = search.searchOption;
-//     const value = search.searchValue;
-//     // console.log(option);
-//     const response = await fetch('http://localhost:8000/api/v1/data/search', {
-//       params: {
-//         option: value
-//       }
-//     });
-//     if (!response.ok) {
-//       throw new Error('Network response was not ok');
-//     }
-//     const data = await response.json();
-//     return data;
-//   } catch (error) {
-//     throw new Error('Error fetching Searching data: ' + error.message);
-//   }
-// });
 
 export default getMatchingData;

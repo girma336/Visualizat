@@ -48,7 +48,12 @@ function App() {
                 className={`flex rounded-md p-2 cursor-pointer hover:bg-light-white text-gray-300 text-sm items-center gap-x-4 ${Menu.gap ? "mt-9" : "mt-2"
                   } ${index === 0 && "bg-light-white"}`}
               >
-                <img src={Menu.src} alt={Menu.title} />
+                
+                <Link
+                  to={`/${Menu.title}`}
+                >
+                  <img src={Menu.src} alt={Menu.title} />
+                </Link>
                 <Link
                   to={`/${Menu.title}`}
                   className={`${!open && "hidden"} origin-left duration-200`}

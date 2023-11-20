@@ -1,13 +1,9 @@
 import { useState } from "react";
 import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
 import control from './assets/control.png';
-import logo from './assets/logo.png';
+import logo from './assets/logo.jpeg';
 import Chart_fill from './assets/Chart_fill.png';
-import Chat from './assets/Chat.png';
-import User from './assets/User.png';
-import Calendar from './assets/Calendar.png';
 import Search from './assets/Search.png';
-import Chart from './assets/Chart.png';
 import Dashboard from "./pages/Dashboard";
 import SearchPage from "./pages/SearchPage";
 
@@ -15,11 +11,7 @@ function App() {
   const [open, setOpen] = useState(true);
   const Menus = [
     { title: "Dashboard", src: Chart_fill },
-    { title: "Inbox", src: Chat },
-    { title: "Accounts", src: User, gap: true },
-    { title: "Schedule ", src: Calendar },
     { title: "Search", src: Search },
-    { title: "Analytics", src: Chart },
   ];
 
   return (
@@ -40,13 +32,13 @@ function App() {
             <img
               src={logo}
               alt="logo"
-              className={`cursor-pointer duration-500 ${open && "rotate-[360deg]"}`}
+              className={`w-[50px] h-[50px] rounded-2xl cursor-pointer duration-500 ${open && "rotate-[360deg]"}`}
             />
             <h1
               className={`text-white origin-left font-medium text-xl duration-200 ${!open && "scale-0"
                 }`}
             >
-              Designer
+              BlackCoffer
             </h1>
           </div>
           <ul className="pt-6">
